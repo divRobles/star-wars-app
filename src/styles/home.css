@@ -1,0 +1,45 @@
+/* Scrollbars */
+
+body::-webkit-scrollbar{
+    display: none;
+}
+/* width scrollbar */
+.row-characters::-webkit-scrollbar, .row-planets::-webkit-scrollbar  {
+    height: 10px;
+}
+
+/* Handle scrollbar */
+.row-characters::-webkit-scrollbar-thumb, .row-planets::-webkit-scrollbar-thumb {
+    background: #FFE500;
+    border-radius: 10px;
+
+}
+
+
+/* home body */
+.container-home {
+    padding: 0 4%;
+}
+
+.container-characters, .container-planets{
+    min-height: 90vh;
+}
+
+.row-characters,
+.row-planets {
+
+    padding: 0.5%;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+
+.characters-tittle,
+.planets-tittle {
+    color: #FFE500;
+    padding: 2% 0;
+
+    
+}
+
