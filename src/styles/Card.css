@@ -44,6 +44,6 @@
 }
 
 .btn-learn-more, .btn-go{
-    background-color: #FFE500;
+    background-color: var(--colorFondo);
     color: black;
 }

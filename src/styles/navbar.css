@@ -25,9 +25,8 @@
     width: 100%;
 }
 
-.btn-favorites{
-    background-color: #FFE500;
-    color: black;
+.dropdown-button{
+    background-color: var(--colorFondo);
 }
 
 .dropdown-menu[data-bs-popper]{

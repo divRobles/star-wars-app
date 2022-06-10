@@ -1,3 +1,7 @@
+*{
+    --colorFondo: #FFE500;
+}
+
 /* Scrollbars */
 
 body::-webkit-scrollbar{
@@ -10,7 +14,7 @@ body::-webkit-scrollbar{
 
 /* Handle scrollbar */
 .row-characters::-webkit-scrollbar-thumb, .row-planets::-webkit-scrollbar-thumb {
-    background: #FFE500;
+    background: var(--colorFondo);
     border-radius: 10px;
 
 }
