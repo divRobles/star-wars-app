@@ -41,7 +41,7 @@ body::-webkit-scrollbar{
 
 .characters-tittle,
 .planets-tittle {
-    color: #FFE500;
+    color: var(--colorFondo);
     padding: 2% 0;
 
     
