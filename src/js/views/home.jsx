@@ -6,8 +6,10 @@ import { Context } from "../store/appContext.js";
 export const Home = () => {
     // const tienda = getStore(); 
     const {store, actions} = useContext(Context);
-    console.log('a',store.characters)
     const characters = store.characters;
+    const planets = store.planets;
+    const characterProperties = store.characterProperties;
+    console.log(characterProperties)
 
     return (
         <div className="container-fluid container-home">
@@ -20,7 +22,7 @@ export const Home = () => {
                 <div className="row row-characters">
                 {
                     characters.map((ele, i)=>{
-                        console.log(ele.name)
+                        // console.log(ele.name)
                         let card = 
                         <Card key= {i}  name = {ele.name}
                         />
@@ -35,13 +37,15 @@ export const Home = () => {
                 <h1 className="planets-tittle">Planets</h1>
 
                 <div className="row row-planets">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                {
+                    planets.map((ele, i)=>{
+                        // console.log(ele.name)
+                        let card = 
+                        <Card key= {i}  name = {ele.name}
+                        />
+                        return card;
+                    })
+                }
 
                 </div>
             </div>

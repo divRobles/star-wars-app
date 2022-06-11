@@ -6,7 +6,7 @@ import '../../styles/Card.css'
 
 
 export const Card = ({ name }) => {
-  console.log(name)
+  // console.log(name)
    return (
     <div className="card">
 
