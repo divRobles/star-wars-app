@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import '../../styles/Card.css'
+import { Context } from '../store/appContext';
 
 
 
 
 
-export const Card = ({ name }) => {
+export const Card = ({ name, gender, hairColor, eyeColor }) => {
+  const {setState} = useContext(Context)
   // console.log(name)
    return (
     <div className="card">
@@ -15,21 +18,26 @@ export const Card = ({ name }) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text">
-          Some quick example text to build on the card title and make up the bulk
-          of the card's content.
+          Gender: {gender} <br></br>
+          Eyes Color: {eyeColor} <br></br>
+          Hair color: {hairColor}
         </p>
 
         <div className="row row-icons-card">
           <div className="col-9">
-            <a href="#" className="btn btn-learn-more">
+          <Link to="/Characters">
+            <div href="#" className="btn btn-learn-more" onClick={()=> setState('hola')}>
               Learn more
-            </a>
+            </div>
+					</Link>
           </div>
 
           <div className="col-3">
-            <a href="#" className="btn btn-go">
+          <Link to="/demo">
+            <div className="btn btn-go">
               Go
-            </a>
+            </div>
+					</Link>
           </div>
         </div>
       </div>

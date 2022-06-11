@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import '../../styles/navbar.css'
 
+
 export const Navbar = () => {
+
 	return (
 		<nav className="navbar container-navbar mb-3">
 			<div className="row navbar-row">

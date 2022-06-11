@@ -8,7 +8,9 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
+import { Characters } from './views/Characters.jsx'
 import { Footer } from "./component/footer";
+
 
 
 //create your first component
@@ -28,6 +30,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/Characters">
+							<Characters />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

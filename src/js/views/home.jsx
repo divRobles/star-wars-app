@@ -8,9 +8,13 @@ export const Home = () => {
     const {store, actions} = useContext(Context);
     const characters = store.characters;
     const planets = store.planets;
-    const characterProperties = store.characterProperties;
-    console.log(characterProperties)
+    const charactersProperties = store.charactersProperties;
 
+    // console.log(characters);
+    console.log(charactersProperties);
+
+
+    console.log(charactersProperties.length)
     return (
         <div className="container-fluid container-home">
 
@@ -21,6 +25,14 @@ export const Home = () => {
 
                 <div className="row row-characters">
                 {
+                    charactersProperties.map((ele, i)=>{
+                        let card = 
+                        <Card key= {i}  name = {ele.properties.name} gender = {ele.properties.gender} hairColor= {ele.properties.hair_color} eyeColor = {ele.properties.eye_color}
+                        />
+                        return card;
+                    })
+                }
+                {/* {
                     characters.map((ele, i)=>{
                         // console.log(ele.name)
                         let card = 
@@ -28,7 +40,7 @@ export const Home = () => {
                         />
                         return card;
                     })
-                }
+                } */}
 
                 </div>
             </div>
