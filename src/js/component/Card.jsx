@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../styles/Card.css'
 import { Context } from '../store/appContext';
@@ -7,9 +7,17 @@ import { Context } from '../store/appContext';
 
 
 
-export const Card = ({ name, gender, hairColor, eyeColor }) => {
-  const {setState} = useContext(Context)
-  // console.log(name)
+export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor }) => {
+  const {store, actions} = useContext(Context);
+  const characters = store.characters;
+  
+  const abrirPgDetalles = (e)=>{
+    console.log("ee", e.target)
+  }
+
+
+
+
    return (
     <div className="card">
 
@@ -25,8 +33,12 @@ export const Card = ({ name, gender, hairColor, eyeColor }) => {
 
         <div className="row row-icons-card">
           <div className="col-9">
-          <Link to="/Characters">
-            <div href="#" className="btn btn-learn-more" onClick={()=> setState('hola')}>
+          <Link to="/Characters" onClick={abrirPgDetalles}>
+            {/* <div href="#" className="btn btn-learn-more">
+              {state}
+            </div> */}
+            {/* <div href="#" className="btn btn-learn-more" onClick={()=> actions.getCharacter({name: name, gender: gender, hairColor: hairColor, eyeColor: eyeColor, height: height, skinColor: skinColor}) }> */}
+            <div href="#" className="btn btn-learn-more" onClick={()=> abrirPgDetalles }>
               Learn more
             </div>
 					</Link>

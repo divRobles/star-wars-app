@@ -5,6 +5,7 @@ import { Context } from "../store/appContext.js";
 
 export const Home = () => {
     // const tienda = getStore(); 
+    console.log("ijijiji",useContext(Context))
     const {store, actions} = useContext(Context);
     const characters = store.characters;
     const planets = store.planets;
@@ -27,20 +28,12 @@ export const Home = () => {
                 {
                     charactersProperties.map((ele, i)=>{
                         let card = 
-                        <Card key= {i}  name = {ele.properties.name} gender = {ele.properties.gender} hairColor= {ele.properties.hair_color} eyeColor = {ele.properties.eye_color}
+                        <Card key= {i}  name = {ele.properties.name} gender = {ele.properties.gender} hairColor= {ele.properties.hair_color} eyeColor = {ele.properties.eye_color} height = {ele.properties.height} skinColor = {ele.properties.skin_color}
                         />
                         return card;
                     })
                 }
-                {/* {
-                    characters.map((ele, i)=>{
-                        // console.log(ele.name)
-                        let card = 
-                        <Card key= {i}  name = {ele.name}
-                        />
-                        return card;
-                    })
-                } */}
+
 
                 </div>
             </div>
@@ -49,15 +42,16 @@ export const Home = () => {
                 <h1 className="planets-tittle">Planets</h1>
 
                 <div className="row row-planets">
-                {
+                {/* {
                     planets.map((ele, i)=>{
-                        // console.log(ele.name)
+                        console.log(ele)
                         let card = 
-                        <Card key= {i}  name = {ele.name}
+                        <Card key= {i}  name = {ele.name} 
                         />
                         return card;
                     })
-                }
+                } */}
+
 
                 </div>
             </div>
