@@ -9,6 +9,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
 import { Characters } from './views/Characters.jsx'
+import { Planets } from './views/Planets.jsx'
 import { Footer } from "./component/footer";
 
 
@@ -33,6 +34,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/Characters">
 							<Characters />
+						</Route>
+						<Route exact path="/Planets">
+							<Planets />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

@@ -4,12 +4,11 @@ import '../../styles/Characters.css'
 
 
 
-export const Characters = () => {
+export const Planets = () => {
     const { store, actions } = useContext(Context);
-    const select = store.select;
-    const characters = store.characters;
-    const charactersProperties = store.charactersProperties;
-    // console.log("kollo", select)
+    const selectPlanet = store.selectPlanet;
+
+    // console.log("kollo", selectPlanet)
     return (
         <div className="container-pg-characters">
             <div className="row row-fotoYDescripcion">
@@ -17,35 +16,36 @@ export const Characters = () => {
                 <img className="img-character" alt="" src="https://lumiere-a.akamaihd.net/v1/images/hb_disneyplus_skywalkersaga_mobile_19267_e964ed2c.jpeg?region=0,0,640,400"></img>
                 </div>
                 <div className="col-6">
-                    <h1>{select.name}</h1>
+                    <h1>{selectPlanet.name}</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis non mollitia earum, sapiente, fugiat tempore repellendus doloribus labore rem ex facere perspiciatis ipsam laboriosam ipsa eius vero. Inventore, doloremque impedit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo beatae maxime doloribus nostrum corporis! Saepe, dignissimos unde in provident reprehenderit debitis mollitia quo accusamus officiis blanditiis? Expedita blanditiis dolorum rem?</p>
                    
                 </div>
             </div>
+
             <div className="row row-caracteristicas">
                         <div className="col-2">
                             <h3>Name</h3>
-                            <p>{select.name}</p>
+                            <p>{selectPlanet.name}</p>
                         </div>
                         <div className="col-2">
                             <h3>Gender</h3>
-                            <p>{select.gender}</p>
+                            <p>{selectPlanet.population}</p>
                         </div>
                         <div className="col-2">
                             <h3>Hair Color</h3>
-                            <p>{select.hairColor}</p>
+                            <p>{selectPlanet.terrain}</p>
                         </div>
                         <div className="col-2">
                             <h3>Eyes Color</h3>
-                            <p>{select.eyeColor}</p>
+                            <p>{selectPlanet.climate}</p>
                         </div>
                         <div className="col-2">
                             <h3>Height</h3>
-                            <p>{select.height}</p>
+                            <p>{selectPlanet.diameter}</p>
                         </div>
                         <div className="col-2">
                             <h3>Skin Color</h3>
-                            <p>{select.skinColor}</p>
+                            <p>{selectPlanet.rotation_period}</p>
                         </div>
                     </div>
         </div>

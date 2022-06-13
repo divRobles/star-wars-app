@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../styles/navbar.css'
+import { Context } from '../store/appContext';
 
 
 export const Navbar = () => {
+	const {store, actions} = useContext(Context);
+	const favorites = store.favorites;
+	// const [namee, setNamee] = useState("")
+	if(favorites){
+		let name = favorites.name;
+		console.log(typeof favorites.name);
+		// setNamee(name)
+	}
+
+
+
 
 	return (
 		<nav className="navbar container-navbar mb-3">
@@ -23,6 +35,10 @@ export const Navbar = () => {
 								Action
 							</button>
 							<ul className="dropdown-menu">
+
+								
+								<li><div className="dropdown-item" href="#">{name}</div></li>
+								{console.log(name)}
 								<li><a className="dropdown-item" href="#">Action</a></li>
 								<li><a className="dropdown-item" href="#">Another action</a></li>
 								<li><a className="dropdown-item" href="#">Something else here</a></li>
