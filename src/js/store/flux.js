@@ -129,27 +129,32 @@ const getState = ({ getStore, getActions, setStore }) => {
         // }
     },
     getPlanet : (planet) =>{
+      
         setStore({
             selectPlanet: planet
         })
     },
     favorites: (name)=>{
-      setStore({
-        favorites: name
+      const store = getStore();
+            setStore({
+        favorites: [...store.favorites, name]
       })
+
     },
-    //   getPlanets: () => {
-    //       fetch("https://www.swapi.tech/api/planets", {
-    //               method: "GET",
-    //               ContentType: "application/json",
-    //           })
-    //           .then((resp) => resp.json())
-    //           .then((resp) =>
-    //               setStore({
-    //                   planets: resp.results,
-    //               })
-    //           );
-    //   },
+    transforFavorites : (info)=>{
+      const store = getStore();
+      const nuevaLista = [];
+      store.favorites.map((ele)=>{
+        if(ele && ele.id !== info){
+          nuevaLista.push(ele);
+        }
+      })
+      setStore({
+        favorites: nuevaLista
+      });
+      console.log("listaFavsTransformada",store.favorites)
+    },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();

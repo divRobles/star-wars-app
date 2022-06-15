@@ -33,3 +33,9 @@
     left: auto;
     right: 0;
 }
+
+.botonDelete{
+    height: 20px;
+    width: 20px;
+    background-color: black;
+}

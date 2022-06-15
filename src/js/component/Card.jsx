@@ -7,16 +7,19 @@ import { Context } from '../store/appContext';
 
 
 
-export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor }) => {
+export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor, id }) => {
   const {store, actions} = useContext(Context);
   const characters = store.characters;
   const favorites = store.favorites;
+  // let favbn = favorites.pop();
+  // console.log("ok",favorites)
+  // console.log("nook",favbn)
   
 
 
 
    return (
-    <div className="card">
+    <div className="card" key= {id}>
 
       <img className="img-character" alt="" src="https://lumiere-a.akamaihd.net/v1/images/hb_disneyplus_skywalkersaga_mobile_19267_e964ed2c.jpeg?region=0,0,640,400"></img>
 
@@ -40,7 +43,7 @@ export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor }) =
 
           <div className="col-3">
           {/* <Link to="/demo"> */}
-            <div className="btn btn-go" onClick={()=> actions.favorites({name})}>
+            <div className="btn btn-go" onClick={()=> actions.favorites({name, id})}>
               Go
             </div>
 					{/* </Link> */}

@@ -1,18 +1,15 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { BtnFav } from "./BtnFav.jsx";
 import '../../styles/navbar.css'
 import { Context } from '../store/appContext';
+
 
 
 export const Navbar = () => {
 	const {store, actions} = useContext(Context);
 	const favorites = store.favorites;
-	// const [namee, setNamee] = useState("")
-	if(favorites){
-		let name = favorites.name;
-		console.log(typeof favorites.name);
-		// setNamee(name)
-	}
+	// console.log("fav en nav", favorites);
 
 
 
@@ -27,7 +24,11 @@ export const Navbar = () => {
 
 
 				</div>
-				<div className="col-10 col-enlace-demo">
+				{/* <BtnFav name= {e()} ></BtnFav> */}
+				{/* <BtnFav favoritos= {favorites}></BtnFav> */}
+				<BtnFav favoritos={favorites}></BtnFav>
+
+				{/* <div className="col-10 col-enlace-demo">
 					<div className="ml-auto">
 
 						<div className="btn-group">
@@ -48,7 +49,7 @@ export const Navbar = () => {
 
 					</div>
 
-				</div>
+				</div> */}
 			</div>
 		</nav>
 	);
