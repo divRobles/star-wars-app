@@ -1,4 +1,9 @@
-.container-pg-characters {
-    height: 100vh;
+.container-pg-characters, .container-pg-planets {
+    height: 85vh;
     color: white;
+    overflow: hidden;
+}
+
+.container-pg-characters .row, .container-pg-planets .row{
+    padding: 5%;
 }

@@ -8,12 +8,11 @@ export const Planets = () => {
     const { store, actions } = useContext(Context);
     const selectPlanet = store.selectPlanet;
 
-    // console.log("kollo", selectPlanet)
     return (
-        <div className="container-pg-characters">
+        <div className="container-pg-planets">
             <div className="row row-fotoYDescripcion">
                 <div className="col-6">
-                <img className="img-character" alt="" src="https://lumiere-a.akamaihd.net/v1/images/hb_disneyplus_skywalkersaga_mobile_19267_e964ed2c.jpeg?region=0,0,640,400"></img>
+                <img className="img-character" alt="" src="https://www.brickfanatics.com/wp-content/uploads/LEGO-Star-Wars-The-Skywalker-Saga-Coruscant-featured.jpg"></img>
                 </div>
                 <div className="col-6">
                     <h1>{selectPlanet.name}</h1>
@@ -23,31 +22,34 @@ export const Planets = () => {
             </div>
 
             <div className="row row-caracteristicas">
-                        <div className="col-2">
-                            <h3>Name</h3>
-                            <p>{selectPlanet.name}</p>
-                        </div>
-                        <div className="col-2">
-                            <h3>Gender</h3>
-                            <p>{selectPlanet.population}</p>
-                        </div>
-                        <div className="col-2">
-                            <h3>Hair Color</h3>
-                            <p>{selectPlanet.terrain}</p>
-                        </div>
-                        <div className="col-2">
-                            <h3>Eyes Color</h3>
-                            <p>{selectPlanet.climate}</p>
-                        </div>
-                        <div className="col-2">
-                            <h3>Height</h3>
-                            <p>{selectPlanet.diameter}</p>
-                        </div>
-                        <div className="col-2">
-                            <h3>Skin Color</h3>
-                            <p>{selectPlanet.rotation_period}</p>
-                        </div>
-                    </div>
+                <div className="col-2">
+                    <h3>Name</h3>
+                    <p>{selectPlanet.name}</p>
+                </div>
+                <div className="col-2">
+                    <h3>Population</h3>
+                    <p>{selectPlanet.population}</p>
+                </div>
+                <div className="col-2">
+                    <h3>Terrain</h3>
+                    <p>{selectPlanet.terrain}</p>
+                </div>
+                <div className="col-2">
+                    <h3>Climate</h3>
+                    <p>{selectPlanet.climate}</p>
+                </div>
+                <div className="col-2">
+                    <h3>Diameter</h3>
+                    <p>{selectPlanet.diameter}</p>
+                </div>
+                <div className="col-2">
+                    <h3>Rotation Period</h3>
+                    <p>{selectPlanet.rotation_period}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="elance"><a href={`https://www.google.com/search?q=${selectPlanet.name}`}>Enlace + info</a></div>
+            </div>
         </div>
     );
 }

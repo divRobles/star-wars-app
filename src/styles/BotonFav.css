@@ -1,0 +1,18 @@
+.botonFav{
+
+}
+
+.listaFavs{
+    position: absolute;
+    right: 20px;
+    z-index: 999;
+    min-width: 185px;
+}
+
+.visible{
+    color: rgb(255, 255, 255);
+    list-style: none;
+    background-color: rgb(0, 0, 0)
+};
+
+/* No visible está en index.css porque aquí no va */

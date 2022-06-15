@@ -40,25 +40,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             }),
         });
       },
-      getCharacters: () => {
-        // fetch("https://www.swapi.tech/api/people", {
-        //   method: "GET",
-        //   ContentType: "application/json",
-        // })
-        //   .then((resp) => resp.json())
-        //   // .then((resp) => console.log(resp))
-        //   .then((data) =>
-        //     setStore({
-        //       // ...store,
-        //       characters: data.results,
-        //     })
-        //   )
-        //   .catch((e) => {
-        //     console.dir(e);
-        //     e.message === "Unexpected token M in JSON at position 0" &&
-        //       alert("La api está más saturá que yo");
-        //   });
-      },
       getCharacter: (character) =>
         setStore({
           select: character,
@@ -70,31 +51,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((resp) => resp.json())
           .then((resp) => {
-            // console.log("resp", resp);
-            // result.push(resp.result);
-            // result.length === 10 &&
               setStore({
                 charactersProperties: resp.results,
               });
           });
-        // const store = getStore();
-        // let result = [];
-        // for (let i = 1; i < 11; i++) {
-        //   async function f() {
-        //     const resp = await fetch(`https://www.swapi.tech/api/people/${i}`);
-        //     const res = await resp.json();
-        //     result.push(res.result);
-        //     result.length === 10 &&
-        //       setStore({
-        //         charactersProperties: result,
-        //       });
-        //   }
-        //   f();
-        // }
       },
       getPlanets: () => {
         const store = getStore();
-        let result = [];
 
           fetch(`https://swapi.dev/api/planets`, {
             method: "GET",
@@ -102,31 +65,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
             .then((resp) => resp.json())
             .then((resp) => {
-              // console.log("resp", resp);
-              // result.push(resp.result);
-              // result.length === 10 &&
                 setStore({
                   planets: resp.results,
                 });
             });
-
-
-        // for (let i = 1; i < 11; i++) {
-        //   fetch(`https://www.swapi.tech/api/planets/${i}`, {
-        //     method: "GET",
-        //     ContentType: "application/json",
-        //   })
-        //     .then((resp) => resp.json())
-        //     .then((resp) => {
-        //       console.log("resp", resp);
-        //       result.push(resp.result);
-        //       result.length === 10 &&
-        //         setStore({
-        //           planets: result,
-        //         });
-        //     });
-
-        // }
     },
     getPlanet : (planet) =>{
       
@@ -136,23 +78,31 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     favorites: (name)=>{
       const store = getStore();
-            setStore({
+      let repe = true;
+      store.favorites.filter(function(ele){
+        if(ele.id === name.id){
+          alert(`${name.name} ya es fav`)
+          return repe = false;
+        }
+      });
+      repe &&
+      setStore({
         favorites: [...store.favorites, name]
       })
 
     },
+
     transforFavorites : (info)=>{
       const store = getStore();
-      const nuevaLista = [];
-      store.favorites.map((ele)=>{
-        if(ele && ele.id !== info){
-          nuevaLista.push(ele);
-        }
-      })
+      
       setStore({
-        favorites: nuevaLista
+        favorites: store.favorites.filter(function(ele){
+          if(ele && ele.id !== info){
+            return ele;
+          }
+        })
       });
-      console.log("listaFavsTransformada",store.favorites)
+
     },
 
       changeColor: (index, color) => {

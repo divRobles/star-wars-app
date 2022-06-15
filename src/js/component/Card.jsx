@@ -11,12 +11,6 @@ export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor, id 
   const {store, actions} = useContext(Context);
   const characters = store.characters;
   const favorites = store.favorites;
-  // let favbn = favorites.pop();
-  // console.log("ok",favorites)
-  // console.log("nook",favbn)
-  
-
-
 
    return (
     <div className="card" key= {id}>
@@ -33,7 +27,7 @@ export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor, id 
 
         <div className="row row-icons-card">
           <div className="col-9">
-          <Link to="/Characters">
+          <Link to={`/Characters/${id}`}>
 
             <div href="#" className="btn btn-learn-more" onClick={()=> actions.getCharacter({name: name, gender: gender, hairColor: hairColor, eyeColor: eyeColor, height: height, skinColor: skinColor}) }>
               Learn more
@@ -42,11 +36,11 @@ export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor, id 
           </div>
 
           <div className="col-3">
-          {/* <Link to="/demo"> */}
+
             <div className="btn btn-go" onClick={()=> actions.favorites({name, id})}>
-              Go
+              Fav
             </div>
-					{/* </Link> */}
+
           </div>
         </div>
       </div>

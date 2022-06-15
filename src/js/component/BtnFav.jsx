@@ -1,25 +1,25 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import '../../styles/navbar.css'
+import '../../styles/BotonFav.css'
 import { Context } from '../store/appContext';
-import uniqid from "uniqid";
+import { AiOutlineDelete } from "react-icons/ai";
 
 
 export const BtnFav = ({ favoritos }) => {
 
-    const {store, actions} = useContext(Context);
+    const { store, actions } = useContext(Context);
     const favorites = store.favorites;
 
+    const [displayLista, setDisplayLista] = useState(false)
 
-    console.log('listaFavs',favorites)
-    const click =(ident)=>{
-        // actions.transforFavorites({name: 'eh', id: 2})
-        console.log(ident)
-        favorites.map((ele )=>{
-            if (ele && ele.id === ident){
-                actions.transforFavorites(ident)
-            }
-        })
+
+    const click = (ident) => {
+        actions.transforFavorites(ident)
+        favorites.length === 1 && actions.transforFavorites(null);
+    }
+
+    const display =()=>{
+        setDisplayLista((displey)=> displey = !displey)
     }
 
 
@@ -30,53 +30,45 @@ export const BtnFav = ({ favoritos }) => {
             <div className="ml-auto">
 
                 <div className="btn-group">
-                    <button type="button" className="btn dropdown-button dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
+                    <button type="button" className="btn dropdown-toggle dropdown-button botonFav" onClick={display} aria-expanded="false">
+                        Fav List
                     </button>
+                </div>
+
+                <ul className="listaFavs">
+
+                    {
+                            favoritos && favoritos.map((ele) => {
 
 
-                    <ul className="dropdown-menu">
-                        <li id={uniqid("fav-")}>
-                            <div className="row">
-                                <div className="col-12">
-                                    <a className="dropdown-item" href="#">Favoritos</a>
-                                </div>
-                            </div>
-                        </li>
 
-                        {
-                            favoritos && favoritos.map((ele, i) => {
-                                
                                 const listaFavs = [];
                                 const ident = ele && ele.id
-                                if(ele){
-                                const fav =
-                                <li key={ident}>
-                                    <div className="row">
-                                        <div className="col-10">
-                                            <a className="dropdown-item" href="#">{ele && ele.name}</a>
-                                        </div>
-                                        <div className="col-2">
-                                            <div className="botonDelete" id={ident} onClick={()=>click(ele.id)}>
+                                if (ele) {
+                                    const fav =
+                                        <li className={displayLista ? "visible"  : "noVisible"} key={ident} >
+                                            <div className="row">
+                                                <div className="col-9">
+                                                    <div>{ele && ele.name}</div>
+                                                </div>
+                                                <div className="col-3">
+                                                    <div className="botonDelete" id={ident} onClick={() => click(ele.id)}>
+                                                        <AiOutlineDelete></AiOutlineDelete>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                listaFavs.push(fav)
-                                // listaFavs.map((ele)=>{
-                                //     return ele.key !== a
-                                // })
-                                // return i !== 0 && listaFavs
-                            }
-                            return listaFavs
+                                        </li>
+                                    listaFavs.push(fav)
+
+                                }
+                                return listaFavs
 
 
                             })
 
                         }
 
-                    </ul>
-                </div>
+                </ul>
 
             </div>
 

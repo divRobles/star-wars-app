@@ -12,7 +12,6 @@ export const Home = () => {
     const planets = store.planets;
     const charactersProperties = store.charactersProperties;
 
-    // console.log("planets",planets);
 
     return (
         <div className="container-fluid container-home">
@@ -43,7 +42,7 @@ export const Home = () => {
                 {
                     planets.map((ele, i)=>{
                         let card = 
-                        <CardPlanets key= {i}  name = {ele.name} population = {ele.population} terrain = {ele.terrain} climate = {ele.climate} orbiltal_period = {ele.orbiltal_period} rotation_period = {ele.rotation_period} diameter = {ele.diameter}
+                        <CardPlanets key= {i} id={i+10} name = {ele.name} population = {ele.population} terrain = {ele.terrain} climate = {ele.climate} orbiltal_period = {ele.orbiltal_period} rotation_period = {ele.rotation_period} diameter = {ele.diameter}
                         />
                         return card;
                     })
