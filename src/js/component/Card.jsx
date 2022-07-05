@@ -12,6 +12,8 @@ export const Card = ({ name, gender, hairColor, eyeColor, height, skinColor, id 
   const characters = store.characters;
   const favorites = store.favorites;
 
+
+
    return (
     <div className="card" key= {id}>
 

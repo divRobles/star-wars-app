@@ -26,7 +26,7 @@ export const CardPlanets = ({  name, population, terrain, climate ,orbiltal_peri
                     Population: {population} <br></br>
                     Terrain: {terrain} <br></br>
                     Climate: {climate}
-        </p>
+                </p>
 
                 <div className="row row-icons-card">
                     <div className="col-9">
